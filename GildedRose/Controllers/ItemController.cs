@@ -36,9 +36,7 @@ namespace GildedRose.Controllers
       //[Authorize]
       [Route("{name}/buy")]
       [System.Web.Http.HttpGet]
-      //[System.Web.Http.AcceptVerbs("GET", "POST")]
-      //[IdentityBasicAuthentication]
-      [BasicAuthenticationAttribute]
+      [CustomerAuthentication]
       public IHttpActionResult BuyItem(string name)
       {
          var item = Store.Instance.GetItem(name);
@@ -46,10 +44,6 @@ namespace GildedRose.Controllers
          {
             return NotFound();
          }
-
-         // Authenticate user
-        
-
 
          return Ok(item);
       }

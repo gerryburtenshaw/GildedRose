@@ -9,7 +9,7 @@ using System.Web;
 
 namespace GildedRose.Attributes
 {
-   public class BasicAuthenticationAttribute : System.Web.Http.Filters.AuthorizationFilterAttribute
+   public class CustomerAuthentication : System.Web.Http.Filters.AuthorizationFilterAttribute
    {
       public override void OnAuthorization(System.Web.Http.Controllers.HttpActionContext actionContext)
       {
