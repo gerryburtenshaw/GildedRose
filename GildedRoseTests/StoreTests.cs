@@ -1,9 +1,4 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using GildedRose.Controllers;
-using System.Web.Http;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using GildedRose.Models;
 
 namespace GildedRoseTests
