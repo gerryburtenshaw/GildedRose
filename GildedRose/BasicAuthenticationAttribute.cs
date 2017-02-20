@@ -46,7 +46,7 @@ namespace GildedRose.Attributes
                //   actionContext.Response = new System.Net.Http.HttpResponseMessage(System.Net.HttpStatusCode.Unauthorized);
             }
          }
-         catch (Exception ex)
+         catch (Exception)
          {
             actionContext.Response = new System.Net.Http.HttpResponseMessage(System.Net.HttpStatusCode.InternalServerError);
          }
