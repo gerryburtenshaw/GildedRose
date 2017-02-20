@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <title>Product App</title>
+</head>
+<body>
+   <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+   <script src="/js/gildedrose-1.0.0.js"></script>
+
+   <script>
+      $(document).ready(function () {
+         // Start tests
+         test1($("#test1"));
+         test2($("#test2"));
+         test3($("#test3"));
+         test4($("#test4"));
+         test5($("#test5"));
+      });
+
+      // Test retrieving the current inventory API (api/item)
+      function test1(ui) {
+         window.GildedRose.inventory(function (data) {
+            ui.text("PASSED");
+         });
+         ui.text("RUNNING");
+      }
+
+
+   </script>
+
+   <p>
+      <div><span id="test1"></span><span>Get current inventory</span></div>
+      <div><span id="test2"></span><span>Buy With good credentials and itemname</span></div>
+      <div><span id="test3"></span><span>Buy With bad username</span></div>
+      <div><span id="test4"></span><span>Buy With bad password</span></div>
+      <div><span id="test5"></span><span>Buy With bad itemname</span></div>
+      
+   </p>
+</body>
+</html>
