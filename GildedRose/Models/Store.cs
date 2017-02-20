@@ -7,6 +7,7 @@ namespace GildedRose.Models
 {
    public class Store
    {
+      // Items a Store object has, for now hardcoded but could get data from elsewhere (ie: Db)
       private readonly Item[] items = new Models.Item[]
       {
             new Item { Name = "Tomato Soup", Description = "Groceries", Price = 1 },
@@ -15,6 +16,7 @@ namespace GildedRose.Models
             new Item { Name = "Trov", Description = "On demand insurance", Price = 16 }
       };
 
+      // Singleton pattern
       static private Store _instance = null;
       static public Store Instance
       {
