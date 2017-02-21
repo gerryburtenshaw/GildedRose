@@ -11,3 +11,8 @@ h2 {
 .testresult {
    color: deepskyblue;
 }
+
+a:link,a:visited, a:hover, a:active {
+   color:darkorange;
+   text-decoration: none;
+}
