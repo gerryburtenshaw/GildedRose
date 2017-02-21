@@ -29,7 +29,7 @@ namespace GildedRose.Models
          return result;
       }
 
-      public bool IsPasswordValid(String password)
+      private bool IsPasswordValid(String password)
       {
          return Password.Equals(password);
       }
