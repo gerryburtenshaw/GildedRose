@@ -38,6 +38,7 @@ namespace GildedRose.Models
 
       public void AddItem(Item item)
       {
+         // Sanity check on item object
          if (item == null)
             throw new NullReferenceException();
 

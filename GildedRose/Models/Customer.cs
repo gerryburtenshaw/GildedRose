@@ -16,9 +16,12 @@ namespace GildedRose.Models
       public string Username { get; set; }
       public string Password { get; set; }
 
+      // Checks that the password given for a specific username matches.
       public static bool HasValidCredentials(String username, String password)
       {
          bool result = false;
+
+         // Get the customer object that has the given username
          Customer customer = customers.FirstOrDefault((p) => p.Username == username);
 
          if (customer != null)
@@ -29,7 +32,8 @@ namespace GildedRose.Models
          return result;
       }
 
-      private bool IsPasswordValid(String password)
+      // Check if the given password is correct for this customer
+      public bool IsPasswordValid(String password)
       {
          return Password.Equals(password);
       }

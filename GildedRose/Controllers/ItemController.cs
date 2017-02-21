@@ -33,7 +33,6 @@ namespace GildedRose.Controllers
          return Ok(item);
       }
 
-      //[Authorize]
       [Route("{name}/buy")]
       [System.Web.Http.HttpGet]
       [CustomerAuthentication]

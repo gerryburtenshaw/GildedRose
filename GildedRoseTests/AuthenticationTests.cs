@@ -21,10 +21,10 @@ namespace GildedRoseTests
          // Valid credentials
          Assert.IsTrue(Customer.HasValidCredentials("Dave","Dave123"));
 
-         // Invalid Name
+         // Invalid username
          Assert.IsFalse(Customer.HasValidCredentials("bad name", "Dave123"));
 
-         // Invalid Password
+         // Invalid password
          Assert.IsFalse(Customer.HasValidCredentials("Dave", "bad password"));
       }
    }

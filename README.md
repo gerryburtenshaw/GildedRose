@@ -1,22 +1,23 @@
 # GildedRose
 
-This project supports the following RESTful API
+This project was created in VisualStudio 2015 using Web API 2 and .NET 4.6 Framework
 
-````
-(GET) /api/item => return all items in the inventory
-(GET) /api/item/{itemname} => returns a specific item OR a 404 Http Response if the item does not exist
-(GET) /api/item/{itemname}/buy => return the item just purchased OR a 401 if credentials are not valid or 404 if item is not valid.
-````
+The following RESTful APIs are supported
 
 
-For this project, I chose to have the API responses to return JSON formatted data. It would be ideal to have the user the freedom to specify,
-for themselves, which format to return. There are a few strategies as to how to go about doing this: 
+* `(GET) /api/item` => return all items in the inventory
+* `(GET) /api/item/{itemname}` => returns a specific item OR a 404 Http Response if the item does not exist
+* `(GET) /api/item/{itemname}/buy` => return the item just purchased OR a 401 if credentials are not valid or 404 if item is not valid.
+
+
+
+For this project, I chose to have the API responses return JSON formatted data. It would be ideal to have the user the freedom to specify which format to return. Here are a few strategies as to how to go about doing this: 
 
 * Using HTTP Headers such as Accept or Content-Type on the request
 * Command url parameter specifying the return format
 * Include the desired format via the RESTful URL itself. For example: api/item/{itemname}.{ext}, where {ext} would represent the response format.
 
-Example: Get the inventory:
+## Example: Get the inventory
 
 `REQUEST`
 ```css
@@ -24,7 +25,28 @@ Example: Get the inventory:
 ```
 `RESPONSE`
 ```json
-[{"Name":"Tomato Soup","Description":"Groceries","Price":1},{"Name":"Yo-yo","Description":"Round thing with string attached","Price":3},{"Name":"First born","Description":"Hardware","Price":16},{"Name":"Trov","Description":"On demand insurance","Price":16}]
+[
+   {
+		"Name": "Tomato Soup",
+		"Description": "Groceries",
+		"Price": 1
+	},
+	{
+		"Name": "Yo-yo",
+		"Description": "Round thing with string attached",
+		"Price": 3
+	},
+	{
+		"Name": "First born",
+		"Description": "Hardware",
+		"Price": 16
+	},
+	{
+		"Name": "Trov",
+		"Description": "On demand insurance",
+		"Price": 16
+	}
+]
 ```
 
 ## Authentication Model:
