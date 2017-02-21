@@ -47,11 +47,19 @@ namespace GildedRoseTests
       [TestMethod]
       public void GetItemTests()
       {
-         Item item = Store.Instance.GetItem("Yo-yo");
-         Assert.IsNotNull(item);
-
-         item = Store.Instance.GetItem("blah");
+         // An item identified as "test" should not exist
+         Item item = Store.Instance.GetItem("Test");
          Assert.IsNull(item);
+
+         Item testItem = new Item();
+         testItem.Name = "Test";
+
+         Store.Instance.AddItem(testItem);
+         item = Store.Instance.GetItem(testItem.Name);
+
+         // Make sure an Item was returned and it is what we were expecting.
+         Assert.IsNotNull(item);
+         Assert.AreEqual(testItem.Name, item.Name);
       }
    }
 }
