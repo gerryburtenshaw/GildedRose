@@ -21,7 +21,7 @@ For this project, I chose to have the API responses return JSON formatted data. 
 
 `REQUEST`
 ```css
-(GET) http://localhost/api/item
+(GET) http://localhost:50171/api/item
 ```
 `RESPONSE`
 ```json
@@ -65,7 +65,7 @@ The user credentials that are hardcoded in place, and can be used within the tes
 Included are 3 levels of testing:
 
 1. *UnitTest* : GildedRoseTests visual studion project as part of the solution. Utilizes the Microsoft.VisualStudio.QualityTools.UnitTestFramework and can be investigated and ran using Visual Studio's Test Explorer
-2. *Integration* : http://localhost/sandbox.html provides a sample usage of the API in an integrated environment (webpage)
-3. *Continuous Integration* : http://localhost/autotestapi.html runs and reports on some automatic integration tests and also provides example Javascript usage of the GildedRose JS module. 
+2. *Integration* : http://localhost:50171/playpen.html provides a sample usage of the API in an integrated environment (webpage) and manual testing
+3. *Continuous Integration* : http://localhost:50171/autotestapi.html runs and reports on some automatic integration tests and also provides example Javascript usage of the GildedRose JS module. 
 
 NOTE: The web UI and behaviour is by no means complete (or pretty) but, rather, strives to illustrate concepts and ideas.
