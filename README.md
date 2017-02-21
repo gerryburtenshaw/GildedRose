@@ -53,10 +53,9 @@ For this project, I chose to have the API responses return JSON formatted data. 
 
 For this exercise, I used HTTP Basic Authentication solely for it's simplicity.  
 
-However, a Digest Authentication would have been a much better choice in this scenario. 
-Especially given that we are using HTTP and not HTTPS. (The latter being a requirement in order to make Basic Authentication secure in any sense of the word)
+However, a Digest Authentication would have been a better choice, in this scenario, to address some of the security weaknesses of Basic authentication.
 
-The user credentials that are hardcoded in place, and can be used within the tests, are as follows:
+The following user credentials are hardcoded in place, and can be used within the tests:s
 - Dave(Dave123)
 - Gerry(Gerry123)
 
