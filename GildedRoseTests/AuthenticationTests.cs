@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Text;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using GildedRose.Models;
 
 namespace GildedRoseTests
 {
@@ -15,19 +16,16 @@ namespace GildedRoseTests
       }*/
 
       [TestMethod]
-      public void BasicAuthenticationTest()
-      {
-         string username = Convert.ToBase64String(Encoding.UTF8.GetBytes("joydip"));
-         string password = Convert.ToBase64String(Encoding.UTF8.GetBytes("joydip123"));
+      public void BasicAuthenticationTests()
+      {         
+         // Valid credentials
+         Assert.IsTrue(Customer.HasValidCredentials("Dave","Dave123"));
 
-         HttpClient client = new HttpClient();
+         // Invalid Name
+         Assert.IsFalse(Customer.HasValidCredentials("bad name", "Dave123"));
 
-         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Authorization", username + ":" + password);
-
-         //var result = client.GetAsync(new Uri("http://localhost/IDG/api/default/")).Result;
-         var result = client.GetAsync(new Uri("http://localhost:50171/api/item/Yo-yo/buy")).Result;
-
-         Assert.IsTrue(result.IsSuccessStatusCode);
+         // Invalid Password
+         Assert.IsFalse(Customer.HasValidCredentials("Dave", "bad password"));
       }
    }
 }

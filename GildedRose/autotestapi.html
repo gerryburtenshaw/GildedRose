@@ -17,11 +17,108 @@
          test5($("#test5"));
       });
 
-      // Test retrieving the current inventory API (api/item)
+      // Test the api/item API to retrieve the current
       function test1(ui) {
-         window.GildedRose.inventory(function (data) {
-            ui.text("PASSED");
+         window.GildedRose.inventory(
+           function (data) {
+              ui.text("PASSED");
+           },
+         function () {
+            ui.text("FAILED");
          });
+
+         ui.text("RUNNING");
+      }
+
+      // Buy an item with proper credentials and item identifier
+      function test2(ui) {
+         var itemname = 'Yo-yo';
+
+         window.GildedRose.buyItem(
+            {
+               username: 'Dave',
+               password: 'Dave123',
+               itemname: itemname,
+               success: function (item) {
+                  if (item.Name == itemname)
+                     ui.text("PASSED");
+                  else
+                     ui.text("FAILED");
+               },
+               error: function (xhr, status, err) {
+                  ui.text("FAILED");
+               }
+            });
+
+         ui.text("RUNNING");
+      }
+
+      // Try to buy an item with inproper username credentials (401 Unauthorized)
+      function test3(ui) {
+         var itemname = 'Yo-yo';
+
+         window.GildedRose.buyItem(
+            {
+               username: 'bad username',
+               password: 'Dave123',
+               itemname: itemname,
+               success: function (item) {
+                  ui.text("FAILED");
+               },
+               error: function (xhr, status, err) {
+                  if (xhr.status == 401)
+                     ui.text("PASSED")
+                  else
+                     ui.text("FAILED");
+               }
+            });
+
+         ui.text("RUNNING");
+      }
+
+      // Try to buy an item with inproper password credentials (401 Unauthorized)
+      function test4(ui) {
+         var itemname = 'Yo-yo';
+
+         window.GildedRose.buyItem(
+            {
+               username: 'Dave',
+               password: 'bad password',
+               itemname: itemname,
+               success: function (item) {
+                  ui.text("FAILED");
+               },
+               error: function (xhr, status, err) {
+                  if (xhr.status == 401)
+                     ui.text("PASSED")
+                  else
+                     ui.text("FAILED");
+               }
+            });
+
+         ui.text("RUNNING");
+      }
+
+      // Try to buy an item with inproper item indentifier (404 Not Found)
+      function test5(ui) {
+         var itemname = 'bad item identifier';
+
+         window.GildedRose.buyItem(
+            {
+               username: 'Dave',
+               password: 'Dave123',
+               itemname: itemname,
+               success: function (item) {
+                  ui.text("FAILED");
+               },
+               error: function (xhr, status, err) {
+                  if (xhr.status == 404)
+                     ui.text("PASSED")
+                  else
+                     ui.text("FAILED");
+               }
+            });
+
          ui.text("RUNNING");
       }
 
@@ -29,12 +126,11 @@
    </script>
 
    <p>
-      <div><span id="test1"></span><span>Get current inventory</span></div>
-      <div><span id="test2"></span><span>Buy With good credentials and itemname</span></div>
-      <div><span id="test3"></span><span>Buy With bad username</span></div>
-      <div><span id="test4"></span><span>Buy With bad password</span></div>
-      <div><span id="test5"></span><span>Buy With bad itemname</span></div>
-      
+      <div><span id="test1"></span><span> Get current inventory</span></div>
+      <div><span id="test2"></span><span> Buy With good credentials and item identifier</span></div>
+      <div><span id="test3"></span><span> Buy With bad username</span></div>
+      <div><span id="test4"></span><span> Buy With bad password</span></div>
+      <div><span id="test5"></span><span> Buy With bad item identifier</span></div>
    </p>
 </body>
 </html>

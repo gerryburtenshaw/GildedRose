@@ -5,8 +5,8 @@ window.GildedRose = window.GildedRose || (function () {
    var uriPrefix = 'api/';
    var itemApi = uriPrefix + 'item';
 
-   _module.inventory = function (callback) {
-      $.getJSON(itemApi).done(callback);
+   _module.inventory = function (callback,err) {
+      $.getJSON(itemApi).done(callback).error(err);
    }
 
    _module.buyItem = function (data) {
